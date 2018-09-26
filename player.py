@@ -32,7 +32,7 @@ class Player():
 		self.r /= np.linalg.norm(self.r)
 
 	def update(self):
-		self.collision();
+		self.collision()
 
 		self.pos = self.pos + self.r * gv.elapsed_time * self.speed
 		self.pos[0] %= self.width
