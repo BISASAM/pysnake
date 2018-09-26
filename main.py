@@ -22,10 +22,11 @@ def update():
 	# time between two frames
 	gv.elapsed_time = gv.clock.tick() / 1000
 
-	for p in gv.players:
+	# use reversed iterator to make list deletions possible
+	for p in reversed(gv.players):
 		p.update()
 
-	for i in gv.items:
+	for i in reversed(gv.items):
 		i.update()
 
 

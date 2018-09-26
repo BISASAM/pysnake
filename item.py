@@ -19,11 +19,15 @@ class Item():
 	def update(self):
 
 		self.timer += gv.elapsed_time
-		if self.timer > self.life_time:
-			self.remove_from_list()
+		self.check_lifetime()
 
 	def draw(self):
 		pygame.draw.rect(gv.game_screen, self.look, (*self.pos, 20, 20))
 
 	def remove_from_list(self):
 		gv.items.remove(self)
+
+	def check_lifetime(self):
+		if self.timer > self.life_time:
+			self.remove_from_list()
+
