@@ -48,7 +48,8 @@ class Player():
 		self.turn_speed *= turn_factor
 
 	def change_thickness(self, factor):
-		self.thickness *= factor
+		self.thickness = int(self.thickness * factor)
+		self.thickness = 1 if self.thickness == 0 else self.thickness
 
 	def collision(self):
 		for item in gv.items:

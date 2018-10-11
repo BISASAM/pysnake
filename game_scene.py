@@ -5,6 +5,7 @@ from player import Player
 from item import Item
 import global_vars as gv
 from scene_base import SceneBase
+from item_handler import ItemHandler
 
 
 class GameScene(SceneBase):
@@ -15,11 +16,11 @@ class GameScene(SceneBase):
 		gv.players.append(Player(gv.blue, K_LEFT, K_RIGHT))
 		# gv.players.append(Player(gv.red, K_a, K_s))
 
-		# init items
-		gv.items.append(Item('slow', 20))
-		gv.items.append(Item('fast', 20))
+		# init ItemHandler
+		self.item_handler = ItemHandler()
 
 	def events(self):
+
 		# quit event
 		for event in pygame.event.get():
 			if event.type == QUIT:
@@ -38,8 +39,7 @@ class GameScene(SceneBase):
 		for p in reversed(gv.players):
 			p.update()
 
-		for i in reversed(gv.items):
-			i.update()
+		self.item_handler.update()
 
 	def draw(self):
 
