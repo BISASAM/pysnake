@@ -22,7 +22,7 @@ class Item():
 		self.check_lifetime()
 
 	def draw(self):
-		pygame.draw.rect(gv.game_screen, self.look, (*self.pos, 20, 20))
+		pygame.draw.rect(gv.game_screen, self.look, (*self.pos-10, 20, 20))
 
 	def remove_from_list(self):
 		gv.items.remove(self)

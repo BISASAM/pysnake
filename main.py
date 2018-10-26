@@ -14,6 +14,10 @@ from game_scene import GameScene
 active_scene = GameScene()
 
 while active_scene != None:
+
+	# time between two frames globally available
+	gv.elapsed_time = gv.clock.tick() / 1000
+
 	# clear screen
 	gv.game_screen.fill(gv.black)
 
