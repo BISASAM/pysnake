@@ -1,0 +1,36 @@
+from scene_base import SceneBase
+
+class MenuScene(SceneBase):
+	def __init__(self):
+		SceneBase.__init__(self)
+
+		# init players
+		gv.players.append(Player(gv.blue, K_LEFT, K_RIGHT))
+		# gv.players.append(Player(gv.red, K_a, K_s))
+
+		# init ItemHandler
+		self.item_handler = ItemHandler()
+
+	def events(self):
+
+		# quit event
+		for event in pygame.event.get():
+			if event.type == QUIT:
+				pygame.quit()
+				sys.exit()
+
+		# player events
+		for p in gv.players:
+			p.events()
+
+	def update(self):
+
+
+
+	def draw(self):
+
+		# draw all elements
+		for p in gv.players:
+			p.draw()
+		for i in gv.items:
+			i.draw()
